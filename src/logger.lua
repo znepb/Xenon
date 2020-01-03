@@ -81,11 +81,11 @@ end
 
 function logger.externInfo(text)
   if slackURL then
-    http.post(slackURL,  textutils.serializeJSON({username = externName, text = text}), {["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"})
+    http.post(slackURL,  textutils.serializeJSON({username = externName, text = text}), {["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0", ["Content-Type"] = "application/json"})
   end
 
   if discordURL then
-    http.post(discordURL, textutils.serializeJSON({username = externName, content = text}), {["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"})
+    http.post(discordURL, textutils.serializeJSON({username = externName, content = text}), {["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0", ["Content-Type"] = "application/json"})
   end
 end
 
