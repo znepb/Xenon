@@ -92,17 +92,17 @@ end
 function logger.externMention(text)
   if slackURL then
     if slackName then
-      http.post(slackURL, textutils.serializeJSON({username = externName, text = "<@" .. slackName .. "> " .. text}), {["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"})
+      http.post(slackURL, textutils.serializeJSON({username = externName, text = "<@" .. slackName .. "> " .. text}), {["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"}, ["Content-Type"] = "application/json"})
     else
-      http.post(slackURL, textutils.serializeJSON({username = externName, text = "<@" .. slackName .. "> " .. text}), {["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"})
+      http.post(slackURL, textutils.serializeJSON({username = externName, text = "<@" .. slackName .. "> " .. text}), {["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"}, ["Content-Type"] = "application/json"})
     end
   end
 
   if discordURL then
     if discordName then
-      http.post(discordURL, textutils.serializeJSON({username = externName, content = "<@" .. discordName .. "> " .. text}), {["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"})
+      http.post(discordURL, textutils.serializeJSON({username = externName, content = "<@" .. discordName .. "> " .. text}), {["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"}, ["Content-Type"] = "application/json"})
     else
-      http.post(discordURL, textutils.serializeJSON({username = externName, content = text}), {["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"})
+      http.post(discordURL, textutils.serializeJSON({username = externName, content = text}), {["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"}, ["Content-Type"] = "application/json"})
     end
   end
 end
